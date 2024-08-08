@@ -9,8 +9,9 @@ usage() {
 
 # copy sql
 echo "begin copy sql "
-unzip ../link-wechat/sql/lw-cloud.zip -d ./mysql/db
-unzip ../link-wechat/sql/tables_xxl_job.zip -d ./mysql/db
+#unzip ../link-wechat/sql/lw-cloud.zip -d ./mysql/db
+#unzip ../link-wechat/sql/tables_xxl_job.zip -d ./mysql/db
+unzip ./mysql/db/lw-cloud.zip -d ./mysql/db
 
 
 # copy html
