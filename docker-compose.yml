@@ -50,6 +50,7 @@ services:
       - lw-mysql
   lw-rabbitmq:
     container_name: lw-rabbitmq
+    image: rabbitmq:latest-lw
     build:
       context: ./rabbitmq
     restart: always
@@ -60,7 +61,7 @@ services:
       - ./rabbitmq/data:/var/lib/rabbitmq
   lw-redis:
     container_name: lw-redis
-    image: redis-lw
+    image: redis:latest-lw
     build:
       context: ./redis
     ports:
