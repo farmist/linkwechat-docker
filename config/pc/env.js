@@ -9,7 +9,7 @@ const envs = {
     BASE_API: 'http://122.51.140.189/api',
     SYSTEM_API: '/api',
     _ISGZIP: true, // 是否开启gzip压缩
-    _ISCDN: true, // 是否开启cdn加速
+    _ISCDN: false, // 是否开启cdn加速
   },
 }
 const env = Object.assign(
