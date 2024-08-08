@@ -5,8 +5,8 @@ services:
     image: nacos-server:2.4.0.1.lw
     build:
       context: ./nacos
-    environment:
-      - MODE=standalone
+    env_file:
+      - ./nacos/conf/nacos.env
     volumes:
       - ./nacos/logs/:/home/nacos/logs
       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
