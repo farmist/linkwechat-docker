@@ -1,6 +1,11 @@
 
 
-1. 安装docker-compose 
+1. 安装docker-compose , nodejs16, openjdk11
+```shell
+#1. set npm registry to ali mirrors(System wide, if you don't have permission, remove the -g opeion below)
+npm config -g set registry https://registry.npmmirror.com
+
+```
 
 2. 创建目录并拉取代码
 
@@ -17,17 +22,21 @@
    ```shell
    # 服务端打包
    cd link-wechat
+
+   # checkout the target tag (currently 5.1.3)
+   git checkout v5.1.3
    # 重要
-   cp ../docker-compose/bootstrap.yml config/run/bootstrap.yml
+   cp ../linkwechat-docker/bootstrap.yml config/run/bootstrap.yml
+   # package jar files
    mvn clean package
    # pc前端
-   cd link-we-chat-front/linkwe-pc
-   yarn install
-   yarn build
-   # mobile前端
-   cd link-we-chat-front/linkwe-mobile
-   yarn install
-   yarn build
+   cd link-we-chat-front/vue3-lw-pc
+   git checkout v5.25.0
+   # copy and modify the config for front project, eg. the BASE_URL and DOMAIN are the two important parameters for run it correctly.
+   cp ../linkwechat-docker/pc/env.js
+   npm i
+   npm run build
+
    ```
 
 4. 修改配置和sql
@@ -55,7 +64,13 @@
    sh deploy.sh modules
    ```
 
-6. 搞定
+6. 其它
+```shell
+#只更新前端文件
+docker compose down lw-nginx
+sh copy_front.sh
+docker compose up -d lw-nginx
+```
 
 
 
