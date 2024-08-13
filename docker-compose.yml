@@ -91,7 +91,6 @@ services:
     container_name: lw-gateway
     build:
       context: ./lw/gateway
-      dockerfile: dockerfile
     ports:
       - "8080:8080"
     depends_on:
@@ -102,7 +101,6 @@ services:
     container_name: lw-auth
     build:
       context: ./lw/auth
-      dockerfile: dockerfile
     ports:
       - "9200:9200"
     depends_on:
@@ -113,7 +111,6 @@ services:
     container_name: lw-modules-api
     build:
       context: ./lw/modules/api
-      dockerfile: dockerfile
     ports:
       - "9201:9201"
     depends_on:
@@ -126,7 +123,6 @@ services:
     container_name: lw-modules-file
     build:
       context: ./lw/modules/file
-      dockerfile: dockerfile
     ports:
       - "9101:9101"
     depends_on:
@@ -139,7 +135,6 @@ services:
     container_name: lw-modules-scheduler
     build:
       context: ./lw/modules/scheduler
-      dockerfile: dockerfile
     ports:
       - "9400:9400"
       - "18081:18081"
@@ -153,7 +148,6 @@ services:
     container_name: lw-modules-wecom
     build:
       context: ./lw/modules/wecom
-      dockerfile: dockerfile
     ports:
       - "9203:9203"
     depends_on:
@@ -166,7 +160,6 @@ services:
     container_name: lw-modules-wx
     build:
       context: ./lw/modules/wx
-      dockerfile: dockerfile
     ports:
       - "9204:9204"
     depends_on:
