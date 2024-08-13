@@ -1,7 +1,5 @@
 # 基础镜像
-FROM redis
-# author
-MAINTAINER lw
+FROM redis:7.2.5
 
 # 挂载目录
 VOLUME /home/lw/redis
