@@ -4,17 +4,16 @@
  */
 const envs = {
   production: {
-    DOMAIN: 'http://122.51.140.189',
+    DOMAIN: 'http://192.168.1.229',
     BASE_URL: './', // 路由基础路径
-    BASE_API: 'http://122.51.140.189/api',
+    BASE_API: 'http://192.168.1.229/api',
     SYSTEM_API: '/api',
     _ISGZIP: true, // 是否开启gzip压缩
     _ISCDN: false, // 是否开启cdn加速
   },
 }
-const env = Object.assign(
-  { SYSTEM_NAME_ALL: '企微SCRM' },
-  envs[process.env.VUE_APP_ENV || process.env.NODE_ENV],
-)
+let _env = {}
+_env = envs['production']
+_env.ENV = 'production' // 前端系统环境模式 development，test，production
 
-module.exports = env
+export const env = _env
