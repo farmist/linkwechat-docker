@@ -8,8 +8,8 @@ services:
     env_file:
       - ./nacos/conf/nacos.env
     volumes:
-      - ./nacos/logs/:/home/nacos/logs
-      - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+      - ./nacos/logs/:/home/nacos/logs:Z
+      - ./nacos/conf/application.properties:/home/nacos/conf/application.properties:Z
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -24,10 +24,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./mysql/conf:/etc/mysql/conf.d
-      - ./mysql/logs:/logs
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./mysql/conf:/etc/mysql/conf.d:Z
+      - ./mysql/logs:/logs:Z
+      - ./mysql/data:/var/lib/mysql:Z
+      - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf:Z
     command: [
           'mysqld',
           '--innodb-buffer-pool-size=80M',
@@ -58,7 +58,7 @@ services:
       - 15672:15672
       - 5672:5672
     volumes:
-      - ./rabbitmq/data:/var/lib/rabbitmq
+      - ./rabbitmq/data:/var/lib/rabbitmq:Z
   lw-redis:
     container_name: lw-redis
     image: redis:7.2.5-lw
@@ -67,8 +67,8 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./redis/conf/redis.conf:/home/lw/redis/redis.conf
-      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/home/lw/redis/redis.conf:Z
+      - ./redis/data:/data:Z
     command: redis-server /home/lw/redis/redis.conf
   lw-nginx:
     container_name: lw-nginx
@@ -78,11 +78,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/html/pc:/usr/share/nginx/html/pc
-      - ./nginx/html/mobile:/usr/share/nginx/html/mobile
-      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/logs:/var/log/nginx
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html/pc:/usr/share/nginx/html/pc:Z
+      - ./nginx/html/mobile:/usr/share/nginx/html/mobile:Z
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:Z
+      - ./nginx/logs:/var/log/nginx:Z
+      - ./nginx/conf.d:/etc/nginx/conf.d:Z
     depends_on:
       - lw-gateway
     links:
