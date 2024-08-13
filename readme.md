@@ -29,9 +29,9 @@ npm config -g set registry https://registry.npmmirror.com
    cp ../linkwechat-docker/bootstrap.yml config/run/bootstrap.yml
    # package jar files
    mvn clean package
-   # pc前端
+   # pc前端,  v5.23.1 recommanded (other versions could not be correctly built) 
    cd link-we-chat-front/vue3-lw-pc
-   git checkout v5.25.0
+   git checkout v5.23.1
    # copy and modify the config for front project, eg. the BASE_URL and DOMAIN are the two important parameters for run it correctly.
    cp ../linkwechat-docker/pc/env.js
    npm i
