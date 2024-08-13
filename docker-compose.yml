@@ -2,9 +2,9 @@ version : '3.8'
 services:
   lw-nacos:
     container_name: lw-nacos
-    image: nacos-server:2.4.0.1.lw
-    build:
-      context: ./nacos
+    image: nacos-server:2.4.0.1
+    #build:
+    #  context: ./nacos
     env_file:
       - ./nacos/conf/nacos.env
     volumes:
