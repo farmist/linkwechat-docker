@@ -13,7 +13,7 @@ npm config -g set registry https://registry.npmmirror.com
    mkdir link-wechat && cd link-wechat
    git clone https://gitee.com/LinkWeChat/link-wechat
    git clone https://gitee.com/LinkWeChat/link-we-chat-front
-   git clone https://gitee.com/LinkWeChat_admin/linkwechat-docker
+   git clone https://gitee.com/farmistlee/linkwechat-docker.git
    
    ```
 
