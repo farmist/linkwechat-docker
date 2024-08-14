@@ -28,12 +28,19 @@ port(){
 
 # 启动基础环境（必须）
 base(){
-	docker compose up -d lw-mysql lw-redis lw-nacos lw-rabbitmq lw-xxl-job
+	docker compose up -d lw-mysql lw-redis  lw-rabbitmq 
+	echo "sleep for 20s for database initialization. "
+	sleep 20
+	docker compose up -d lw-nacos lw-xxl-job
+	echo "For podman, ignore those error messages of already started service, that's OK!"
 }
 
 # 启动程序模块（必须）
 modules(){
+	echo "sleep for 20s for base service started correctly."
+	sleep 20
 	docker compose up -d lw-nginx lw-gateway lw-auth lw-modules-api lw-modules-file lw-modules-scheduler lw-modules-wecom lw-modules-wx
+	echo "For podman, ignore those error messages of already started service, that's OK!"
 }
 
 # 关闭所有环境/模块
